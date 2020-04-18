@@ -1,12 +1,68 @@
---- --- --- New Repo
-	
-	git init
-	git remote add origin <url>
-	git pull origin master
+git init
+git remote add origin <url>
+git pull origin master
+git add .
+git commit -m "<comment>"
+git push origin master
+
+--- --- --- New Branch
+	git checkout -b <branch>
 
 	git add .
 	git commit -m "<comment>"
+	git push origin <branch>
+
+--- --- --- New Sub Branch
+	git checkout -b <sub_branch> <branch>
+
+	git add .
+	git commit -m "<comment>"
+	git push origin <sub_branch> <branch>
+
+--- --- --- Merging Sub Branch to Branch
+	git checkout <branch>
+	git merge --no-ff <sub_branch>
+	<vi editor appears> ":wq" to quit
+	git commit -m <comment>
+	git branch -d <sub_branch>
+	git push origin <branch>
+
+--- --- --- Merging Branch to Master
+	git checkout master
+	git merge --no-ff <branch>
+	git tag -a <version_number>
+
+--- --- --- Example Scenario
+	git init
+	git remote add origin git@github.com:mjpb123/Git.git
+	git pull origin master
+	git add .
+	git commit -m "initial commit"
 	git push origin master
 
---- --- --- Branching
-	
+	git checkout -b develop
+
+	<make changes>
+
+	git add .
+	git commit -m "added New Branch notes; DEVELOP file"
+	git push origin develop
+
+	git checkout -b new_feature develop
+
+	<make changes>
+
+	git add .
+	git commit -m "added Sub Branch notes; SUB BRANCH file"
+	git push origin new_feature develop
+
+	git checkout develop
+	git merge --no-ff new_feature
+	<quit vi editor>
+	git commit -m "merging sub branch to branch"
+	git branch -d new_feature
+	git push origin develop
+
+	git checkout master
+	git merge --no-ff develop
+	git tag -a 1.0
