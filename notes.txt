@@ -1,7 +1,6 @@
 git init
 git remote add origin <url>
 git pull origin master
-
 git add .
 git commit -m "<comment>"
 git push origin master
@@ -12,3 +11,10 @@ git push origin master
 	git add .
 	git commit -m "<comment>"
 	git push origin <branch>
+
+--- --- --- New Sub Branch
+	git checkout -b <sub_branch> <branch>
+
+	git add .
+	git commit -m "<comment>"
+	git push origin <sub_branch> <branch>
