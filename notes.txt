@@ -19,6 +19,9 @@ git push origin master
 	git commit -m "<comment>"
 	git push origin <sub_branch> <branch>
 
+--- --- --- Get List of Branches
+	git branch -a
+
 --- --- --- Merging Sub Branch to Branch
 	git checkout <branch>
 	git merge --no-ff <sub_branch>
@@ -31,6 +34,12 @@ git push origin master
 	git checkout master
 	git merge --no-ff <branch>
 	git tag -a <version_number>
+
+	git push origin master
+	git push origin --tags
+
+--- --- --- Get List of Tags
+	git tags -l
 
 --- --- --- Example Scenario
 	git init
@@ -66,3 +75,6 @@ git push origin master
 	git checkout master
 	git merge --no-ff develop
 	git tag -a 1.0
+
+	git push origin master
+	git push origin --tags
