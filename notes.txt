@@ -41,6 +41,13 @@ git push origin master
 --- --- --- Get List of Tags
 	git tags -l
 
+--- --- --- Adding .gitignore to existing project
+	< add .gitignore to project root folder >
+	git rm -rf --cached .
+	git add .
+	git commit -m "<comment>"
+	git push origin master
+
 --- --- --- Example Scenario
 	git init
 	git remote add origin git@github.com:mjpb123/Git.git
